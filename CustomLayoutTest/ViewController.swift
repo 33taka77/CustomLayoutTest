@@ -12,9 +12,9 @@ import UIKit
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
     let CELL_IDENTIFIER = "customLayoutCell"
-
     @IBOutlet weak var collectView: UICollectionView!
     var items:[String] = []
+    var addIndex:[NSIndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,27 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         return items.count
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let addItems:[String] = ["A","B","C","D","E","F","G","H","I","J","K","L","N","M"]
+        self.collectView.performBatchUpdates({
+            
+            var index = indexPath.row % 3
+            switch index {
+            case 0:
+                index = indexPath.row + 3
+            case 1:
+                index = indexPath.row + 2
+            case 2:
+                index = indexPath.row + 1
+            default:
+                index = indexPath.row + 0
+            }
+            for var i = 0; i < addItems.count; i++ {
+                self.items.insert(addItems[i], atIndex: index+i)
+            }
+            collectionView.reloadData()
+        },completion: nil)
+    }
     
 }
 

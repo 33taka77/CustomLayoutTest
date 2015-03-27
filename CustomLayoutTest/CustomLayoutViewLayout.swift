@@ -16,6 +16,8 @@ class CustomLayoutViewLayout: UICollectionViewLayout {
     var minimumInteritemSpacing : CGFloat = 2
     var allItemAttributes : NSMutableArray = []
     var contentsHeight: CGFloat = 0
+    var insertIndexPath: NSMutableArray = []
+    var deleteIndexPath: NSMutableArray = []
     
     override func prepareLayout() {
         super.prepareLayout()
@@ -63,4 +65,34 @@ class CustomLayoutViewLayout: UICollectionViewLayout {
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return true
     }
+    
+    override func prepareForCollectionViewUpdates(updateItems: [AnyObject]!) {
+        super.prepareForCollectionViewUpdates(updateItems)
+        
+        for updateItem in updateItems {
+            let update:UICollectionViewUpdateItem = updateItem as UICollectionViewUpdateItem
+            if update.updateAction == UICollectionUpdateAction.Insert {
+                self.insertIndexPath.addObject(update.indexPathAfterUpdate)
+            }else if update.updateAction == UICollectionUpdateAction.Delete {
+                self.deleteIndexPath.addObject(update.indexPathBeforeUpdate)
+            }
+        }
+    }
+    
+    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        var attributes:UICollectionViewLayoutAttributes = super.initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath)!
+        if self.insertIndexPath.containsObject(itemIndexPath) {
+            attributes = self.layoutAttributesForItemAtIndexPath(itemIndexPath)
+            
+            attributes.alpha = 0.5
+        }
+        return attributes
+    }
+    
+    override func finalizeCollectionViewUpdates() {
+        super.finalizeCollectionViewUpdates()
+        self.insertIndexPath.removeAllObjects()
+        self.deleteIndexPath.removeAllObjects()
+    }
+    
 }
