@@ -8,25 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
-    let collectionView:UICollectionView
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
-    override init() {
-        let layout:CustomLayoutViewLayout! = CustomLayoutViewLayout()
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        super.init()
-    }
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+
+    let CELL_IDENTIFIER = "customLayoutCell"
+
+    @IBOutlet weak var collectView: UICollectionView!
+    var items:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = UIColor(red: 0.8, green: 0.4, blue: 0, alpha: 1.0)
-        self.view.addSubview(collectionView)
+        let layout:CustomLayoutViewLayout! = CustomLayoutViewLayout()
+        layout.columnCount = 3
+        
+        //self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout) as UICollectionView
+        collectView.dataSource = self
+        collectView.delegate = self
+        collectView.backgroundColor = UIColor(red: 0.8, green: 0.4, blue: 0, alpha: 1.0)
+
+        for var i = 0; i < 100; i++ {
+            items.append(String(format: "%d", i ))
+        }
+        /*
+        collectionView.registerClass(CustomLayoutCollectionViewCell.self, forCellWithReuseIdentifier: CELL_IDENTIFIER)
+*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,10 +42,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell:CustomLayoutCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(CELL_IDENTIFIER, forIndexPath: indexPath) as CustomLayoutCollectionViewCell
+        cell.label.text = items[indexPath.row]
+        return cell
     }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return items.count
     }
     
     

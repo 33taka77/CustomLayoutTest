@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		815B8C311AC4E6A100478267 /* CustomLayoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815B8C301AC4E6A100478267 /* CustomLayoutCollectionViewCell.swift */; };
 		F9A8C7AD1AC4214800BE9985 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8C7AC1AC4214800BE9985 /* AppDelegate.swift */; };
 		F9A8C7B01AC4214800BE9985 /* CustomLayoutTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9A8C7AE1AC4214800BE9985 /* CustomLayoutTest.xcdatamodeld */; };
 		F9A8C7B21AC4214800BE9985 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8C7B11AC4214800BE9985 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		815B8C301AC4E6A100478267 /* CustomLayoutCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9A8C7A71AC4214800BE9985 /* CustomLayoutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomLayoutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A8C7AB1AC4214800BE9985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A8C7AC1AC4214800BE9985 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				F9A8C7AC1AC4214800BE9985 /* AppDelegate.swift */,
 				F9A8C7B11AC4214800BE9985 /* ViewController.swift */,
+				815B8C301AC4E6A100478267 /* CustomLayoutCollectionViewCell.swift */,
 				F9A8C7CF1AC42A6B00BE9985 /* CustomLayoutViewLayout.swift */,
 				F9A8C7B31AC4214800BE9985 /* Main.storyboard */,
 				F9A8C7B61AC4214800BE9985 /* Images.xcassets */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9A8C7B21AC4214800BE9985 /* ViewController.swift in Sources */,
+				815B8C311AC4E6A100478267 /* CustomLayoutCollectionViewCell.swift in Sources */,
 				F9A8C7D01AC42A6B00BE9985 /* CustomLayoutViewLayout.swift in Sources */,
 				F9A8C7B01AC4214800BE9985 /* CustomLayoutTest.xcdatamodeld in Sources */,
 				F9A8C7AD1AC4214800BE9985 /* AppDelegate.swift in Sources */,
@@ -347,6 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomLayoutTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomLayoutTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -375,6 +381,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CustomLayoutTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLayoutTest.app/CustomLayoutTest";
@@ -390,6 +397,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CustomLayoutTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomLayoutTest.app/CustomLayoutTest";
@@ -415,6 +423,7 @@
 				F9A8C7CB1AC4214900BE9985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9A8C7CC1AC4214900BE9985 /* Build configuration list for PBXNativeTarget "CustomLayoutTestTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				F9A8C7CE1AC4214900BE9985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
